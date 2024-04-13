@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: server
+  namespace: go-visitors-backend-aws
+spec:
+  hosts:
+    - "kopkfeqwuk-aws-server-backend-go-visitors.codefly.build"
+  gateways:
+    - istio-system/gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/"
+      route:
+        - destination:
+            host: server
+            port:
+              number: 8080

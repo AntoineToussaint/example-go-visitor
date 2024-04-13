@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "cache-read"
+  namespace: "go-visitors-backend-aws"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "cache-read"
+  template:
+    metadata:
+      labels:
+        app: "cache-read"
+    spec:
+      containers:
+        - name: redis
+          image: redis:alpine
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: config
+              mountPath: /usr/local/etc/redis/redis.conf
+              subPath: redis.conf
+          command: [ "redis-server", "/usr/local/etc/redis/redis.conf", "--slaveof", "cache-write", "7070" ]
+
+      volumes:
+        - name: config
+          configMap:
+            name: "cache-config"

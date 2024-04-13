@@ -1,0 +1,5 @@
+kind: application
+name: web
+project: go-visitors
+services:
+    - name: frontend

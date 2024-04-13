@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+  - secret.yaml
+
+
+images:
+  - name: image:tag
+    newName: 621829027644.dkr.ecr.us-east-1.amazonaws.com/kopkfeqwuk/go-visitors/backend/store
+    newTag: 0.0.0

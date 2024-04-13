@@ -1,0 +1,22 @@
+name: store
+version: 0.0.0
+application: backend
+project: go-visitors
+agent:
+    kind: codefly:service
+    name: external-postgres
+    version: 0.0.39
+    publisher: codefly.dev
+service-dependencies: []
+project-configuration-dependencies: []
+endpoints:
+    - name: tcp
+      visibility: external
+spec:
+    database-name: visitors
+    debug: false
+    no-migration: false
+    persist: true
+    silent: true
+    watch: false
+    without-ssl: false

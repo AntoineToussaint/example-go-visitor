@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-frontend
+  namespace: "go-visitors-web-aws"
+data:
+  CODEFLY__ENDPOINT__BACKEND__SERVER__REST__REST: https://kopkfeqwuk-aws-server-backend-go-visitors.codefly.build:443
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VERSION___GET: public
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT__STATISTICS___GET: public
+  CODEFLY__REST_ROUTE__BACKEND__SERVER__REST__REST___VISIT___POST: public

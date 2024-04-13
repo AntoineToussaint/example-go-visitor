@@ -1,0 +1,12 @@
+resources:
+  - ../../base
+  - configmap.yaml
+  - secret.yaml
+  
+  - virtualservice.yaml
+  
+
+images:
+  - name: image:tag
+    newName: 621829027644.dkr.ecr.us-east-1.amazonaws.com/kopkfeqwuk/go-visitors/web/frontend
+    newTag: 0.0.0

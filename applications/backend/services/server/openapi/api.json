@@ -1,0 +1,162 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "ServerService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/version": {
+      "get": {
+        "operationId": "ServerService_Version",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiVersionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ServerService"
+        ]
+      }
+    },
+    "/visit": {
+      "post": {
+        "operationId": "ServerService_CreateVisit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiCreateVisitResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ServerService"
+        ]
+      }
+    },
+    "/visit/statistics": {
+      "get": {
+        "operationId": "ServerService_GetVisitStatistics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiGetVisitStatisticsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ServerService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "apiCreateVisitResponse": {
+      "type": "object",
+      "properties": {
+        "visitNumber": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "apiDailyVisitStatistics": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "visits": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "apiGetVisitStatisticsResponse": {
+      "type": "object",
+      "properties": {
+        "total_visits": {
+          "type": "string",
+          "format": "int64"
+        },
+        "visits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/apiDailyVisitStatistics"
+          }
+        }
+      }
+    },
+    "apiVersionResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

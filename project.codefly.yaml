@@ -1,0 +1,6 @@
+name: go-visitors
+id: fd6621da-f6a9-11ee-b6f2-acde48001122
+applications:
+    - name: backend
+    - name: web
+environments: []

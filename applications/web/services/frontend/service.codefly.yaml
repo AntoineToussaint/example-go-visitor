@@ -1,0 +1,18 @@
+name: frontend
+version: 0.0.0
+application: web
+project: go-visitors
+agent:
+    kind: codefly:service
+    name: nextjs
+    version: 0.0.31
+    publisher: codefly.dev
+service-dependencies:
+    - name: server
+      application: backend
+project-configuration-dependencies: []
+endpoints:
+    - name: http
+      visibility: public
+spec:
+    debug: false

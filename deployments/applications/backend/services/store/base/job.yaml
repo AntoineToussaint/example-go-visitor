@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: store
+  namespace: go-visitors-backend-aws
+spec:
+  template:
+    spec:
+      containers:
+        - name: store
+          image: image:tag
+          envFrom:
+            - secretRef:
+                name: secret-store
+      restartPolicy: Never

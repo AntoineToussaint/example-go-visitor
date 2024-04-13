@@ -1,0 +1,22 @@
+name: cache
+version: 0.0.0
+application: backend
+project: go-visitors
+agent:
+    kind: codefly:service
+    name: redis
+    version: 0.0.32
+    publisher: codefly.dev
+service-dependencies: []
+project-configuration-dependencies: []
+endpoints:
+    - name: write
+      api: tcp
+    - name: read
+      api: tcp
+spec:
+    debug: false
+    persist: false
+    read-replica: true
+    silent: false
+    watch: false

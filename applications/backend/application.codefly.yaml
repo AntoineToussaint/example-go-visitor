@@ -1,0 +1,7 @@
+kind: application
+name: backend
+project: go-visitors
+services:
+    - name: server
+    - name: cache
+    - name: store

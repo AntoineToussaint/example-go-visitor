@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  namespace: go-visitors-backend-aws
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: server
+          image: image:tag
+          envFrom:
+            - configMapRef:
+                name: config-server
+            - secretRef:
+                name: secret-server

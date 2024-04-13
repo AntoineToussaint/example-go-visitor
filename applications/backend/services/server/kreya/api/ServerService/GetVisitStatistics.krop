@@ -1,0 +1,13 @@
+{
+  "details": {
+    "methodFqn": "api.ServerService.GetVisitStatistics"
+  },
+  "requests": [
+    {
+      "location": "GetVisitStatistics-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc",
+  "importStreamId": "e62f5e38-b65e-4925-b3a0-9ad8b6bc4040"
+}

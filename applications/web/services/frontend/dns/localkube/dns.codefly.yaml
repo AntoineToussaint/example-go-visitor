@@ -1,0 +1,3 @@
+- endpoint: http
+  host: localhost
+  port: 25631

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-server
+  namespace: "go-visitors-backend-aws"
+data:
+  CODEFLY__ENDPOINT__BACKEND__SERVER__GRPC__GRPC: "localhost:9090"
+  CODEFLY__ENDPOINT__BACKEND__SERVER__REST__REST: "localhost:8080"
+  CODEFLY__RUNNING: "true"
